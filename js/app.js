@@ -6,7 +6,6 @@ function totalExtraPrice(id, price) {
   totalPrice();
 }
 
-
 document.getElementById("eightGB").addEventListener("click", function () {
   totalExtraPrice("extraMemoryPrice", 0);
 });
@@ -69,7 +68,7 @@ document.getElementById("cupon-apply").addEventListener("click", function () {
     const totalPriceID = document.getElementById("totalPriceCupon");
     const totalPriceValue = parseFloat(totalPriceID.innerText);
     totalPriceID.innerText = (totalPriceValue * 80) / 100;
-    cuponCodeValue.innerText = '';
+    cuponCodeID.value = "" ;
   }  else {
     console.log(alert("invalid cupon code"));
   }

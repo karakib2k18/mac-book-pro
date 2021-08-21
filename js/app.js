@@ -1,8 +1,11 @@
-//memory part js start here
+
+
+// memory size select function
 function totalExtraPrice(id, price) {
   document.getElementById(id).innerText = price;
   totalPrice();
 }
+
 
 document.getElementById("eightGB").addEventListener("click", function () {
   totalExtraPrice("extraMemoryPrice", 0);
@@ -12,6 +15,7 @@ document.getElementById("sixteenGB").addEventListener("click", function () {
   totalExtraPrice("extraMemoryPrice", 180);
 });
 
+// stroge size select function
 document.getElementById("twofivesixGB").addEventListener("click", function () {
   totalExtraPrice("extraStoragePrice", 0);
 });
@@ -24,7 +28,7 @@ document.getElementById("oneTB").addEventListener("click", function () {
   totalExtraPrice("extraStoragePrice", 180);
 });
 
-// delivary charge part js start
+// delivary charge part function
 function totalDeliveryCharge(price) {
   document.getElementById("deliveryPrice").innerText = price;
   totalPrice();
@@ -38,13 +42,13 @@ document.getElementById("paidDelivery").addEventListener("click", function () {
   totalExtraPrice("deliveryPrice", 20);
 });
 
-// get all price value function
+// get all price value id function
 function getTotalPrice(id) {
   let updatePrice = parseFloat(document.getElementById(id).innerText);
   return updatePrice;
 }
 
-// Total calculate function
+// Total-price calculate function
 function totalPrice() {
   const bestPrice = getTotalPrice("bestPrice");
   const memoryPrice = getTotalPrice("extraMemoryPrice");
@@ -56,16 +60,20 @@ function totalPrice() {
   finalTotalCost.innerText = totalPrice.innerText;
 }
 
-//  cupon code calculation
+// total price using  cupon code calculation
 document.getElementById("cupon-apply").addEventListener("click", function () {
-  const cuponCodeValue = document.getElementById("cupon-input").value;
+  const cuponCodeID = document.getElementById("cupon-input");
+  const cuponCodeValue = cuponCodeID.value;
+
   if (cuponCodeValue == "stevekaku") {
     const totalPriceID = document.getElementById("totalPriceCupon");
     const totalPriceValue = parseFloat(totalPriceID.innerText);
     totalPriceID.innerText = (totalPriceValue * 80) / 100;
-
-    console.log(totalPriceValue - totalPriceID.innerText);
+    cuponCodeValue.innerText = '';
   }  else {
     console.log(alert("invalid cupon code"));
   }
+
 });
+
+//end HAVE A GOOD TIME
